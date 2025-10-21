@@ -1,0 +1,5 @@
+# si commenta con hashtag
+FROM python:3.13-alpine
+WORKDIR /app
+COPY ./win .
+CMD ["cat", "prova.txt"]

@@ -1,0 +1,4 @@
+#ISTRUZIONE 1 - INSTALLAZIONE FASTAPI:   python -m venv venv
+#ISTRUZIONE 1 - INSTALLAZIONE FASTAPI:   python.exe -m pip install --upgrade pip   
+#ISTRUZIONE 1 - INSTALLAZIONE FASTAPI:   python -m pip install fastapi   
+#ISTRUZIONE 1 - INSTALLAZIONE FASTAPI:   python -m pip install uvicorn

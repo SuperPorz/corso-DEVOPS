@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTRAZIONE</title>
+</head>
+<body>
+    <h1>Non fai ancora parte della setta LORENZONI? Registrati immediatamanete!!</h1>
+    <form action="/api/registrazione" method="post">
+        <input type="text" name="username" placeholder="username" required>
+        <input type="text" name="password" placeholder="password" required>
+        <button>invia</button>
+    </form>
+    <p><a href="/">TORNA ALLA HOMEPAGE</a></p>
+    <div id="status_operazione"></div> 
+    <script>
+        status_operazione.innerText = location.search;
+    </script>  
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" action="/api/inserisci">
+        <fieldset>
+            <legend>INSERISCI PRODOTTO</legend>
+            <input type="text" placeholder="prodotto" name="prodotto">
+            <input type="number" placeholder="quantita" name="quantita" min="1">
+            <button>Invia</button>
+        </fieldset>
+    </form>
+
+    <form method="post" action="/api/modifica">
+        <fieldset>
+            <legend>MODIFICA PRODOTTO</legend>
+            <input type="text" placeholder="prodotto" name="prodotto">
+            <input type="number" placeholder="quantita" name="quantita" min="1">
+            <button>Invia</button>
+        </fieldset>
+    </form>
+
+    <form method="post" action="/api/elimina">
+        <fieldset>
+            <legend>ELIMINA PRODOTTO</legend>
+            <input type="text" placeholder="prodotto" name="prodotto">
+            <button>Invia</button>
+        </fieldset>
+    </form>
+</body>
+</html>

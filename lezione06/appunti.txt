@@ -1,0 +1,34 @@
+SERVIZIO DATABASE MYSQL:
+
+    services:
+
+    db: 
+        image: mysql
+        restart: always
+        ports:
+            - 3307:3306
+        environment:
+            MYSQL_ROOT_PASSWORD: database
+
+per far partire: docker compose up
+per stoppare il container: docker compose stop
+per far ripartire: docker compose start
+per rimuovere il container: docker compose down
+
+per backend di una app: una volta fatta una configurazione, la si usa sempre;
+
+SERVIZIO BACKEND PYTHON:
+
+backend:
+        build:
+            context: ./backend
+            dockerfile: Dockerfile
+        command: python app.py
+
+Dockerfile:
+FROM python:3.14-alpine
+WORKDIR /app
+COPY . .
+
+ESERCIZIO: are file python e scrivere dati nel DB (fatto ma non fuzniona)
+ESERCIZIO: wrappare l'app dentro una API con rotta e FLASK+FASTAPI (fatto in classe)

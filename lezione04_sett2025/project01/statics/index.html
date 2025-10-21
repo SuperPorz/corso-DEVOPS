@@ -1,0 +1,18 @@
+<h1>SOCIAL</h1>
+<form action="/api/createPost" method="post">
+    <input name="post">
+    <button>INVIA</button>
+</form>
+
+<script>
+    async function getData() {
+        let resp = await fetch('/api/listPost')
+        let data = await resp.json()
+        for (x of data) {
+            content.innerHTML += '<p>' + x + '</p>'
+        }
+    }
+    getData()
+</script>
+
+<div id="content"></div>
