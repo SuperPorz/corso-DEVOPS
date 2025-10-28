@@ -1,0 +1,48 @@
+services:
+
+    loginfrontend:
+        build:
+            context: loginfrontend
+            dockerfile: Dockerfile
+        ports:
+            - 8501:5173
+
+        # i volumi devono mappare (dove verranno copiati) la cartella login con la 
+        # cartella APP del container, in modo da avere corrispondenza
+        volumes:
+            - ./loginfrontend:/app
+            - /app/node_modules
+        command: npm run dev -- --host
+        #andrebbe aggiunto depends_on ->loginbackend
+        depends_on:
+            - prodottibackend
+    loginbackend:
+        build:
+            context: ./loginbackend
+            dockerfile: Dockerfile
+        ports:
+         - 8001:8000
+        volumes:
+            - ./loginbackend:/app
+        command: python app.py
+    
+    prodottibackend:
+        build:
+            context: ./prodottibackend
+            dockerfile: Dockerfile
+        ports:
+         - 8002:8000
+        volumes:
+            - ./prodottibackend:/app
+        command: python app.py
+        depends_on:
+            - db
+
+    db: 
+        image: mysql
+        ports:
+            - 3307:3306
+        environment:
+            MYSQL_ROOT_PASSWORD: database
+
+    
