@@ -30,5 +30,5 @@ FROM python:3.14-alpine
 WORKDIR /app
 COPY . .
 
-ESERCIZIO: are file python e scrivere dati nel DB (fatto ma non fuzniona)
+ESERCIZIO: fare file python e scrivere dati nel DB (fatto ma non funziona)
 ESERCIZIO: wrappare l'app dentro una API con rotta e FLASK+FASTAPI (fatto in classe)
