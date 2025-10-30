@@ -30,12 +30,12 @@ function Prodotto({prodotto}) {
     
     async function handleClick() {
         let response = await fetch("http://127.0.0.1:8002/api/aggiungiProdotto", {
-            method:"PUT",
+            method: "PUT",
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify( {id:prodotto[0]} )
+            body: JSON.stringify({ idProdotto: prodotto[0] })
         })
         let data = await response.json()
-        //dati
+        console.log(data)
     }
 
     return (

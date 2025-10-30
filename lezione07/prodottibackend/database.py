@@ -23,6 +23,7 @@ def execute(query):
     connection = connect()
     cursor = connection.cursor()
     cursor.execute(query)
-    row = cursor.fetchone()
-    #print(rows)
-    return row
+    connection.commit() 
+    cursor.close()
+    connection.close()
+    return cursor.rowcount  # Restituisce righe modificate

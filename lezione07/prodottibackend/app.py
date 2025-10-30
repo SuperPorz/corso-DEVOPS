@@ -7,7 +7,7 @@ import database as db
 # classe basemodel ha tutte le funzionalità per aiutare fastapi con 
 # le richieste post sapendo la struttura dati che verrà passata
 class Prodotto(BaseModel):
-    id:int
+    idProdotto: int
 
 app = FastAPI()
 
@@ -24,8 +24,12 @@ def get_prodotti():
     return db.get_all("select * from prodotti")
 
 @app.put("/api/aggiungiProdotto")
-def aggiungi_prodotto(prodotto:Prodotto):
-    return db.execute(f"inserto into carrello values ({prodotto.id}, 1)")
+def aggiungi_prodotto(prodotto: Prodotto):
+    db.execute(f"""
+               insert into carrello values ({prodotto.idProdotto}, 1) 
+               on duplicate key update quantita = quantita + 1
+               """)
+    return (f"Prodotto inserito correttamente!")
 
 #mapperemo le porte con docker
 uvicorn.run(app, host="0.0.0.0", port=8000)
